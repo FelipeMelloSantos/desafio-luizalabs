@@ -6,8 +6,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-        references: { model: 'pessoas', key: 'id' }
+        type: Sequelize.INTEGER
       },
       pessoa_origem: {
         type: Sequelize.INTEGER,

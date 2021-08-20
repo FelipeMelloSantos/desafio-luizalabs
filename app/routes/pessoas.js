@@ -1,26 +1,43 @@
 var express = require('express');
 var router = express.Router();
 const Pessoa = require('../models/index').Pessoa;
-const Conexao = require('../models/index').Conexao;
 
 router.get('/', async (req, res) => {
 
-    res.send(await Pessoa.findAll(
-        {
-            attributes: ['id', 'nome'],
-            include: ["conhece"]
-        }
-    ));
+    await Pessoa.findAll({
+        attributes: ['id', 'nome'],
+        include: ["conhecidos"]
+    }).then(pessoas => {
+        res.status(200).json(pessoas);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send({ error: err.name });
+    })
 
 });
 
 router.post('/', async (req, res, next) => {
 
-    const pessoa = await Pessoa.create({
+    await Pessoa.create({
         nome: req.body.nome
+    }).then(pessoa => {
+        res.status(201).json(pessoa);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).send({ error: err.name });
     });
 
-    res.status(201).json(pessoa);
+});
+
+router.put('/', async (req, res, next) => {
+
+    res.status(200).json({ message: 'sucesso' });
+
+});
+
+router.delete('/', async (req, res, next) => {
+
+    res.status(200).json({ message: 'sucesso' });
 
 });
 

@@ -12,12 +12,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res, next) => {
 
-    const conexao = await Conexao.create({
+    await Conexao.create({
         pessoa_origem: req.body.pessoa_origem,
         pessoa_destino: req.body.pessoa_destino
     });
 
-    const conexao2 = await Conexao.create({
+    await Conexao.create({
         pessoa_origem: req.body.pessoa_destino,
         pessoa_destino: req.body.pessoa_origem
     });
