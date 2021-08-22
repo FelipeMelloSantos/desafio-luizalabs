@@ -1,44 +1,18 @@
 var express = require('express');
 var router = express.Router();
-const Pessoa = require('../models/index').Pessoa;
 
-router.get('/', async (req, res) => {
+const pessoaController = require('../controllers/pessoaController');
 
-    await Pessoa.findAll({
-        attributes: ['id', 'nome'],
-        include: ["conhecidos"]
-    }).then(pessoas => {
-        res.status(200).json(pessoas);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).send({ error: err.name });
-    })
+router.get('/', pessoaController.getPessoas);
 
-});
+router.post('/', pessoaController.storePessoa);
 
-router.post('/', async (req, res, next) => {
+router.get('/:id/nivel2', pessoaController.getPessoaNivel2);
+router.get('/:id', pessoaController.getPessoa);
 
-    await Pessoa.create({
-        nome: req.body.nome
-    }).then(pessoa => {
-        res.status(201).json(pessoa);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).send({ error: err.name });
-    });
 
-});
+router.put('/:id', pessoaController.updatePessoa);
 
-router.put('/', async (req, res, next) => {
-
-    res.status(200).json({ message: 'sucesso' });
-
-});
-
-router.delete('/', async (req, res, next) => {
-
-    res.status(200).json({ message: 'sucesso' });
-
-});
+router.delete('/:id', pessoaController.deletePessoa);
 
 module.exports = router;
