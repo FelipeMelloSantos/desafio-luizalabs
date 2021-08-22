@@ -14,6 +14,7 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "express-swagger-generator": "^1.1.17",
     "sequelize-cli": "^6.2.0"
   }
 }

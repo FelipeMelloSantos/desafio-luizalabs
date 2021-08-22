@@ -93,8 +93,6 @@ exports.getPessoaNivel2 = async (req, res, next) => {
         res.status(404).json({ message: "Pessoa não encontrada" });
     }
 
-
-
 }
 
 exports.updatePessoa = async (req, res, next) => {
@@ -107,11 +105,13 @@ exports.updatePessoa = async (req, res, next) => {
         .then(status => {
             if (status == 1) {
                 res.json({
+                    status: true,
                     message: "A pessoa foi atualizada com sucesso!"
                 })
             } else {
                 res.json({
-                    message: "Não foi possivel atualizar a pessoa com id: ${id}"
+                    status: false,
+                    message: "Não foi possivel atualizar a pessoa com id: " + id
                 })
             }
         }).catch(err => {
@@ -136,7 +136,7 @@ exports.deletePessoa = async (req, res, next) => {
                 })
             } else {
                 res.json({
-                    message: "Não foi possivel apagar a pessoa com id: ${id}"
+                    message: "Não foi possivel apagar a pessoa com id: " + id
                 })
             }
         }).catch(err => {
