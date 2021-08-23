@@ -61,4 +61,4 @@ typings/
 .next
 
 #database
-database/data.sqlite3
+#database/data.sqlite3

@@ -30,7 +30,7 @@ exports.storePessoa = async (req, res, next) => {
             }
         }
         res.status(201).json({
-            pessoaId: pessoa.id,
+            pessoa: pessoa,
             message: "Pessoa inserida com sucesso",
             statusConexoes
         });
