@@ -31,7 +31,7 @@ let options = {
             description: '',
             version: '1.0.0',
         },
-        host: 'localhost:3000',
+        // host: 'localhost:3000',
         basePath: '/api/v1/',
         produces: [
             "application/json"
