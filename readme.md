@@ -84,3 +84,13 @@ npx sequelize-cli db:migrate:undo:all
 E depois
 
 npx sequelize-cli db:migrate
+
+Para executar a aplicação com o docker basta executar o comando
+
+docker build -t desafio-luizalabs .
+
+Para que a imagem seja montada e depois
+
+docker run -it -p 9000:3000 desafio-luizalabs
+
+Para que o container seja executado
