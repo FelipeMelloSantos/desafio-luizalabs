@@ -90,3 +90,28 @@ E depois
 ```bash
 npx sequelize-cli db:migrate
 ```
+# Docker
+
+O repositório contém um Dockerfile para a criação da imagem da aplicação, para realizar a criação da imagem basta executar o comando:
+
+```bash
+docker build -t desafio-luizalabs .
+```
+
+Para iniciar a aplicação no docker basta executar o comando:
+
+```bash
+docker run -it -p 9000:3000 desafio-luizalabs
+```
+
+A aplicação será executada na porta 9000
+
+# Testes
+
+Foi implementado os testes com Jest, para executar os teste basta executar o comando:
+
+```bash
+npm test
+```
+
+E será feito os testes de todas as rotas da aplicação.

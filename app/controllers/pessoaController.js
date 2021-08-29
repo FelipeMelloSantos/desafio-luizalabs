@@ -70,10 +70,6 @@ exports.getPessoaNivel2 = async (req, res, next) => {
         res.status(500).send({
             message: err.name
         })
-    }).catch(err => {
-        res.status(500).send({
-            message: err.name
-        })
     });
 
     if (pessoa) {
@@ -132,10 +128,12 @@ exports.deletePessoa = async (req, res, next) => {
         .then(status => {
             if (status == 1) {
                 res.json({
+                    status: true,
                     message: "A pessoa foi apagada com sucesso!"
                 })
             } else {
                 res.json({
+                    status: false,
                     message: "Não foi possivel apagar a pessoa com id: " + id
                 })
             }

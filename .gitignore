@@ -61,4 +61,5 @@ typings/
 .next
 
 #database
-#database/data.sqlite3
+database/data.temp.sqlite3
+database/data.test.sqlite3
