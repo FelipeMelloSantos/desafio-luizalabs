@@ -90,6 +90,11 @@ E depois
 ```bash
 npx sequelize-cli db:migrate
 ```
+
+# Swagger
+
+Para acessar o swagger basta acessar a rota /api-docs
+
 # Docker
 
 O repositório contém um Dockerfile para a criação da imagem da aplicação, para realizar a criação da imagem basta executar o comando:
